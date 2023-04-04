@@ -65,9 +65,9 @@ public class UsersController {
         return "redirect:/people";
     }
 
-    //Получаю id пользователя из URL. Как получить из страницы
-    @PostMapping("/edit")
-    public String edit(Model model, @RequestParam("id") long id) {
+    //Контроллер для открытия формы для редактирования пользователя
+    @GetMapping("/edit")
+    public String openEditUserForm (Model model, @RequestParam("id") long id) {
         model.addAttribute("user", userServiceJPA.getUserById(id));
         return "users/edit";
     }
